@@ -59,7 +59,7 @@
 		<section id="weather">
 			<c:forEach items="${weatherList}" var="weather">
 				<c:choose>
-					<c:when test="${weather.fiveDayForecastValue} == 1">
+					<c:when test="${weather.fiveDayForecastValue == 1}"> <!-- ==1 has to be inside{ } -->
 						<div>
 							<c:url var="weatherImageName"
 								value="/img/weather/${weather.forecast}.png" />
@@ -67,7 +67,10 @@
 							<span>High: <c:out value="${weather.high }" /></span> 
 							<span>Low: <c:out value="${weather.low }" /></span>
 							<p>
-								<c:out value="${weather.allAdvisory(weather.forecast, weather.high, weather.low)}" /> 
+								<c:set var="forecast" value="${weather.forecast }"/>
+								<c:set var="high" value="${weather.high }"/>
+								<c:set var="low" value="${weather.low }"/>
+								<c:out value="${weather.allAdvisory(forecast, high, low)}" /> 
 							</p>
 						</div>
 					</c:when>
