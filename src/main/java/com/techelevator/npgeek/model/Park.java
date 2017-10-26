@@ -7,7 +7,7 @@ public class Park {
 	private String state;
 	private int acreage;
 	private int elevation;
-	private int milesOfTrail;
+	private double milesOfTrail;
 	private int numOfCampsites;
 	private String climate;
 	private int yearFounded;
@@ -49,10 +49,10 @@ public class Park {
 	public void setElevation(int elevation) {
 		this.elevation = elevation;
 	}
-	public int getMilesOfTrail() {
+	public double getMilesOfTrail() {
 		return milesOfTrail;
 	}
-	public void setMilesOfTrail(int milesOfTrail) {
+	public void setMilesOfTrail(double milesOfTrail) {
 		this.milesOfTrail = milesOfTrail;
 	}
 	public int getNumOfCampsites() {

@@ -107,3 +107,8 @@ INSERT INTO weather(parkCode, fiveDayForecastValue, low, high, forecast) VALUES 
 INSERT INTO weather(parkCode, fiveDayForecastValue, low, high, forecast) VALUES ('RMNP',3,34,50,'partly cloudy');
 INSERT INTO weather(parkCode, fiveDayForecastValue, low, high, forecast) VALUES ('RMNP',4,33,47,'partly cloudy');
 INSERT INTO weather(parkCode, fiveDayForecastValue, low, high, forecast) VALUES ('RMNP',5,30,43,'rain');
+
+BEGIN TRANSACTION;
+INSERT INTO survey_result(parkcode,emailaddress,state, activitylevel) VALUES ('ENP','ABC@techelevator','OH','active');
+SELECT COUNT(s.parkcode) AS countParkcode, p.parkname FROM survey_result s JOIN park p ON p.parkcode = s.parkcode GROUP BY p.parkcode ORDER BY countParkcode, p.parkname ASC LIMIT 5;
+ROLLBACK;
