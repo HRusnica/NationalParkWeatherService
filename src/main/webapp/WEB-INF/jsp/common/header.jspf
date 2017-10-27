@@ -7,21 +7,24 @@
     <title>National Parks</title>
     <c:url value="/css/stylesheet.css" var="cssHref" />
     <link rel="stylesheet" href="${cssHref}">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro" rel="stylesheet">
     </head>
     <header>
     		<c:url value="/" var="homePageHref" />
     		<c:url value="/img/logo.png" var="logoSrc" />
         <a href="${homePageHref}">
-        		<img src="${logoSrc}" alt="National Park logo" />
+        		<img id="logo" src="${logoSrc}" alt="National Park logo" />
         </a>
-        <h1>National Park Geek</h1>
+          	<div class="contents">
+	          	<c:url value="/" var="home"/>
+	            <span class="links"><a href="${home}">Home</a></span>
+            </div>
+            <div class="contents">
+	            <c:url value="/survey" var="survey"/>
+	            <span class="links"><a href="${survey}">Survey</a></span>
+            </div>
+      
     </header>
-    <nav>
-        <ul>
-            <c:url value="/" var="home"/>
-            <li><a href="${home}">Home</a></li>
-            <c:url value="/survey" var="survey"/>
-            <li><a href="${survey}">Survey</a></li>
-        </ul>
-    </nav>
+
+ 
     <body>

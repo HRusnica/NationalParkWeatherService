@@ -2,15 +2,15 @@
 
 <%@ include file="common/header.jspf"%>
 
-<section>
+<section class="parkList">
 
-		<div>
+		<div class="parkImage">
 			<c:url var="imageName"
 				value="/img/parks/${park.parkCode.toLowerCase()}.jpg" />
 			<img src="${imageName}" alt="${park.parkName}">
 		</div>
 	
-		<section id="park">
+		<section id="park" class="parkInfo">
 			<div>
 				<h1>
 					<c:out value="${park.parkName}" />
@@ -56,35 +56,43 @@
 				<c:out value="${park.description }" />
 			</p>
 		</section>
+		</section>
 		<section id="weather">
 			<c:forEach items="${weatherList}" var="weather">
-				<c:choose>
-					<c:when test="${weather.fiveDayForecastValue == 1}"> <!-- ==1 has to be inside{ } -->
-						<div>
+						<div class="day">
 							<c:url var="weatherImageName"
 								value="/img/weather/${weather.forecast}.png" />
 							<img src="${weatherImageName}" alt="${weather.forecast } image">
-							<span>High: <c:out value="${weather.high }" /></span> 
-							<span>Low: <c:out value="${weather.low }" /></span>
+							<c:choose>
+								<c:when test="${tempUnit == true}"> <!-- if tempUnit is true, provide Celsius Temp -->
+									<span>High: <c:out value="${weather.highC}C" /></span> 
+									<span>Low: <c:out value="${weather.lowC}C" /></span>
+								</c:when>
+								<c:otherwise> 
+									<span>High: <c:out value="${weather.high}F" /></span> 
+									<span>Low: <c:out value="${weather.low}F" /></span>
+								</c:otherwise>
+							</c:choose>
+							
 							<p>
 								<c:set var="forecast" value="${weather.forecast }"/>
 								<c:set var="high" value="${weather.high }"/>
 								<c:set var="low" value="${weather.low }"/>
-								<c:out value="${weather.allAdvisory(forecast, high, low)}" /> 
+								<c:if test="${weather.fiveDayForecastValue == 1}">
+									<c:out value="${weather.allAdvisory(forecast, high, low)}" /> 
+								</c:if>
 							</p>
 						</div>
-					</c:when>
-					<c:otherwise>
-						<div id="futureWeather">
-							<c:url var="weatherImageName"
-								value="/img/weather/${weather.forecast}.png" />
-							<img src="${weatherImageName}" alt="${weather.forecast } image">
-							<span>High: <c:out value="${weather.high }" /></span> 
-							<span>Low: <c:out value="${weather.low }" /></span>
-						</div>
-					</c:otherwise>
-				</c:choose>
 			</c:forEach>
 			</section>
-	</section>
-
+			<section id="converter">
+			<div>
+				<c:url var="convertTempUrl" value="/convertTemp" />
+				<form method="POST" action="${convertTempUrl}" >
+					<input type="hidden" name="tempUnit" value="${!tempUnit}" />
+					<input type="hidden" name="parkCode" value="${park.parkCode}" />
+					<input type="submit" value= "F/C"/>
+				</form>
+			</div>
+			</section>
+		

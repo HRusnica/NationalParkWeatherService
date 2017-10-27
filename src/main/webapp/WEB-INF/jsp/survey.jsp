@@ -23,6 +23,7 @@
 				<form:errors path="emailAddress" cssClass="error"/> <span class="required">*</span>	
 			</div>
 			<div id="state">
+			<form:label path="state">State of Residence: </form:label>
 			<form:select path="state">
 						<form:option value="" placeholder="select">  </form:option>
 						<form:option value="AL">Alabama</form:option>
@@ -80,6 +81,7 @@
 			<form:errors path="state" cssClass="error"/> <span class="required">*</span>
 			</div>
 			<div id="activity level">
+			<form:label path="activityLevel">Activity Level: </form:label>
 			<form:select path="activityLevel">
 						<form:option value="" placeholder="select">   </form:option>
 						<form:option value="inactive">inactive</form:option>

@@ -4,12 +4,11 @@
 <%@ include file="common/header.jspf" %>
 
 <section>
-	<h1>Top 5 Favorite National Parks</h1>
+	<h1 id="favorites">Top 5 Favorite National Parks</h1>
 	
-	<div>
 	
 		<c:forEach var="entry" items="${allResults}">
-			<c:out value="${entry.key}"/>
+			<h2><c:out value="${entry.key}"/> (<c:out value="${entry.value}"/> votes)</h2><br>
 		</c:forEach>	
 	
 

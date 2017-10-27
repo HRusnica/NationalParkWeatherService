@@ -6,7 +6,10 @@ public class Weather {
 	private int fiveDayForecastValue;
 	private int low;
 	private int high;
+	private int lowC ;
+	private int highC;
 	private String forecast;
+	
 	
 	
 	public String allAdvisory(String forecast, int high, int low){
@@ -38,12 +41,11 @@ public class Weather {
 		}
 		return advise;
 	}
-	
-	public int lowTempConverter(int tempF){
+		
+	public  static int FConverterToC(int tempF){
 		int tempC = (tempF - 32) * 5 / 9;
 		return tempC;
 	}
-	
 	
 	
 	public String getParkCode() {
@@ -76,5 +78,14 @@ public class Weather {
 	public void setForecast(String forecast) {
 		this.forecast = forecast;
 	}
+
+	public int getLowC() {
+		return FConverterToC(low);
+	}
+
+	public int getHighC() {
+		return FConverterToC(high);
+	}
+
 	
 }
