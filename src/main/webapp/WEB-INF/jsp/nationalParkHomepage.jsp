@@ -21,3 +21,4 @@
 			</c:forEach>
     	</div>
 </section>
+<%@ include file="common/footer.jspf"%>

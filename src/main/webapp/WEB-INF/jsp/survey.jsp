@@ -11,16 +11,17 @@
 	<form:form method="POST" action="${formAction}" modelAttribute="surveyPost">
 	
 		<div id="park radio button">
-				<form:label path="parkcode">Select your favorite national park:  <span class="required">*</span></form:label><br>
+				<form:label path="parkcode">Select your favorite national park:  <form:errors path="parkcode" Class="error"/>
+				<span class="required">*</span></form:label><br>
 				<c:forEach var="park" items="${allParks}" >
 					<form:radiobutton path="parkcode" value="${park.parkCode}"/><c:out value="${park.parkName}"/><br>
 				</c:forEach>
-				<form:errors path="parkcode" cssClass="error"/>
+				
 			</div>
 			<div id="email">
 				<form:label path="emailAddress">E-mail: </form:label>
 				<form:input path="emailAddress" type="text" />
-				<form:errors path="emailAddress" cssClass="error"/> <span class="required">*</span>	
+				<form:errors path="emailAddress" Class="error"/> <span class="required">*</span>	
 			</div>
 			<div id="state">
 			<form:label path="state">State of Residence: </form:label>
@@ -78,7 +79,7 @@
 						<form:option value="WI">Wisconsin</form:option>
 						<form:option value="WY">Wyoming</form:option>
 			</form:select>
-			<form:errors path="state" cssClass="error"/> <span class="required">*</span>
+			<form:errors path="state" Class="error"/> <span class="required">*</span>
 			</div>
 			<div id="activity level">
 			<form:label path="activityLevel">Activity Level: </form:label>
@@ -89,7 +90,7 @@
 						<form:option value="active">active</form:option>
 						<form:option value="extremely_active">extremely active</form:option>
 						</form:select>
-				<form:errors path="activityLevel" cssClass="error"/> <span class="required">*</span>	
+				<form:errors path="activityLevel" Class="error"/> <span class="required">*</span>	
 			</div>
 			
 			<div>
@@ -99,3 +100,4 @@
 		</form:form>
 	
 </section>
+<%@ include file="common/footer.jspf"%>

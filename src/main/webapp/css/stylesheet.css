@@ -17,33 +17,44 @@ links {
 links {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: right;
 }
       
    header {
 	   background-color: #405900;
-	   align-items: center;
+	   display: grid;
+	   grid-template-columns: 80% 10% 10%;
+   }
+   
+   footer{
+   		background-color: #405900;
+	    text-align: center;
+	    color: white;
    }
    
     .contents {
-    	display: flex;
+    	grid-column 2/3;
+    	align-itesm: flex-end;
     	font-size: 18px;
-    	background-color: #7f2a2a;
+    	background-color: #74c91a;
     	border-radius: 8px;
     	text-align: center;
     	margin: 10px 10px;
     	padding: 5px 5px;
-    	max-width: 150px;
-    	flex-direction: column;
+    	max-width: 10em;
+    	max-height: 2em;
     }
     links {
     width: 100%;
     display: flex;
     justify-content: center;
+    content-align: center;
+    color: white;
 }
     
    #logo {
    width: 500px;
+   grid-column: 1;
    }
    
    .parkList {
@@ -69,21 +80,56 @@ links {
    position: relative;
    }
    
-   #weather {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   flex-wrap: nowrap;
-   align-content: stretch;
+   .error {
+   color: red;
+   font-style: italic;
    }
+   
+   #weather {
+       	display: flex;
+    	font-size: 1em;
+    	text-align: center;
+    	flex-direction: row;
+    	justify-content: space-around:
+   
+   }
+   
+   .dayImg, .todayImg{
+   display: block;
+   }
+   
+   .day{
+   padding: 1%; 
+   flex-grow: 1;
+   margin: 1%;
+   }
+   
+   
+   .today{
+   border: 5px solid #343434;
+   border-radius: 8%;
+   padding: 1%; 
+   flex-grow: 2;
+   margin: 1%;
+   }
+   
+   .temps{
+   display: block;
+   text-align: center;
+   }
+ 
    
    #converter {
    display: block;
-   float: left;
+   justify-content: center;
    }
    
    #favorites {
    text-align: center;
    font-size: 3em;
+   }
+   
+   table td { 
+   padding:5px; 
    }
  

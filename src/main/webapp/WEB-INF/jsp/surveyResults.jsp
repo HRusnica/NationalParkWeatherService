@@ -14,3 +14,4 @@
 
 
 </section>	
+<%@ include file="common/footer.jspf"%>
